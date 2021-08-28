@@ -1,4 +1,3 @@
-// import state from '../../../redux/state';
 import Messages from './messages/Messages';
 import Users from './users/Users';
 import classes from './_Dialogs.module.scss';

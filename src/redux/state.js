@@ -7,7 +7,7 @@ const state = {
       { id: 2, text: 'How do you do?', likesCount: 1 },
       { id: 3, text: 'How do?', likesCount: 10 },
     ],
-    newPostText: 'it-kamasutra.com',
+    newPostText: '',
   },
   dialogsPage: {
     messages: [
@@ -43,7 +43,7 @@ const state = {
         img: 'https://dempseydismantlers.com/wp-content/uploads/2020/02/avatar-icon.png',
       },
     ],
-    newMessageText: 'dump',
+    newMessageText: '',
   },
 };
 
@@ -56,16 +56,22 @@ export let addPost = () => {
   };
   state.profilePage.posts.push(newPost);
   updateNewPostText('');
-  renderEntireTree(state, addPost, updateNewPostText);
 };
 
 //получение данных из текстареа и формирование текста нового поста
 export let updateNewPostText = (newText) => {
   state.profilePage.newPostText = newText;
-  renderEntireTree(state, addPost, updateNewPostText);
+  renderEntireTree(
+    state,
+    addPost,
+    updateNewPostText,
+    addMessage,
+    updateNewMessageText
+  );
 };
 //========================================================================
 
+//добавление постасообщения в стейт и перерисовка страницы
 export let addMessage = () => {
   let newMessage = {
     id: 3,
@@ -76,10 +82,16 @@ export let addMessage = () => {
   updateNewMessageText('');
 };
 
+//получение данных из текстареа и формирование текста нового сообщения
 export let updateNewMessageText = (newTextMessage) => {
   state.dialogsPage.newMessageText = newTextMessage;
-  renderEntireTree(state, addMessage, updateNewMessageText);
-  console.log(state.dialogsPage.newMessageText);
+  renderEntireTree(
+    state,
+    addPost,
+    updateNewPostText,
+    addMessage,
+    updateNewMessageText
+  );
 };
 
 export default state;

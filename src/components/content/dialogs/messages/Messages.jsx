@@ -9,6 +9,7 @@ const Messages = (props) => {
 
   let newMessageElement = React.createRef();
 
+  // получени данных из текстареа
   let onMessageChange = () => {
     let newTextMessage = newMessageElement.current.value;
     props.updateNewMessageText(newTextMessage);
@@ -23,6 +24,7 @@ const Messages = (props) => {
           ref={newMessageElement}
           value={props.newMessageText}
         />
+        {/* добавление поста (функция в стейте) */}
         <button onClick={props.addMessage}>Send</button>
       </div>
     </div>
