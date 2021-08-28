@@ -1,0 +1,46 @@
+.posts {
+  margin: 80px 0 0 0;
+  padding: 0 0 0 20px;
+}
+
+.heading {
+  font-size: 50px;
+  font-family: Raleway;
+  color: rgb(58, 6, 38);
+}
+
+.body {
+  margin: 30px 0 0 0;
+}
+
+.new {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+
+  & textarea {
+    width: 100%;
+    flex: 0 0 80px;
+    background-color: rgb(235, 239, 235);
+    font-size: 20px;
+  }
+
+  & button {
+    align-self: flex-end;
+    width: 200px;
+    height: 50px;
+    border-radius: 5px;
+    overflow: hidden;
+    font-family: Raleway;
+    text-transform: uppercase;
+    font-size: 20px;
+    color: #fff;
+    font-weight: bold;
+    background-color: rgb(147, 32, 182);
+    margin: 20px 0 0 0;
+  }
+}
+
+.content {
+  margin: 50px 0 0 0;
+}

@@ -1,0 +1,36 @@
+.user {
+  margin: 50px 0 0 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 0 0 0 50px;
+
+  &_avatar {
+    flex: 0 0 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 50px 0 0;
+    & img {
+      max-width: 100%;
+    }
+  }
+  &_info {
+    flex: 1 1 auto;
+    font-family: 'Open Sans';
+    color: rgb(30, 3, 104);
+  }
+  &_name {
+    font-size: 60px;
+    font-family: 'Permanent Marker';
+  }
+  &_birth {
+    font-size: 25px;
+    margin: 10px 0 0 0;
+  }
+  &_city {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 10px 0 0 0;
+  }
+}

@@ -1,0 +1,39 @@
+.wrapper {
+  max-width: 80%;
+  background-color: #fff;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  &:nth-child(odd) {
+    margin: 0 0 20px 45px;
+    border-radius: 5px 5px 5px 0;
+    &::before {
+      content: '';
+      width: 0;
+      height: 0;
+      margin: 0 0 0 -15px;
+      border-right: 15px solid #fff;
+      border-top: 10px solid transparent;
+    }
+  }
+  &:nth-child(even) {
+    margin: 0 45px 20px 0;
+    border-radius: 5px 5px 0px 5px;
+    &::after {
+      content: '';
+      width: 0;
+      height: 0;
+      margin: 0 -15px 0 0;
+      border-left: 15px solid #fff;
+      border-top: 10px solid transparent;
+    }
+  }
+}
+
+.message {
+  width: 100%;
+  font-family: 'Indie Flower';
+  font-size: 30px;
+  line-height: 1;
+  padding: 15px 15px 15px 30px;
+}

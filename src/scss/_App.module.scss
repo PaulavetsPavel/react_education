@@ -1,0 +1,27 @@
+.app {
+  max-width: 1440px;
+  min-height: 100vh;
+  margin: 10px auto;
+  background-color: #eee;
+
+  &_wrapper {
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  &_body {
+    flex: 1 1 auto;
+    max-width: 100%;
+    margin: 10px 0 0 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+  &_content {
+    flex: 1 1 auto;
+    background-color: rgb(208, 240, 230);
+    border-radius: 20px 0 0 0;
+    margin: 0 0 0 10px;
+    padding: 20px;
+  }
+}
