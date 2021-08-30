@@ -1,5 +1,3 @@
-import { renderEntireTree } from '../render';
-
 const state = {
   profilePage: {
     posts: [
@@ -46,9 +44,20 @@ const state = {
     newMessageText: '',
   },
 };
+//=======================================================================
+
+// получение функции для перерисовки страницы
+export const subskribe = (observer) => {
+  rerenderEntireTree = observer;
+};
+
+let rerenderEntireTree = () => {
+  console.log('State changed');
+};
+//===========================================================
 
 //добавление поста в стейт и перерисовка страницы
-export let addPost = () => {
+export const addPost = () => {
   let newPost = {
     id: 4,
     text: state.profilePage.newPostText,
@@ -59,20 +68,15 @@ export let addPost = () => {
 };
 
 //получение данных из текстареа и формирование текста нового поста
-export let updateNewPostText = (newText) => {
+export const updateNewPostText = (newText) => {
   state.profilePage.newPostText = newText;
-  renderEntireTree(
-    state,
-    addPost,
-    updateNewPostText,
-    addMessage,
-    updateNewMessageText
-  );
+  rerenderEntireTree();
 };
+
 //========================================================================
 
 //добавление постасообщения в стейт и перерисовка страницы
-export let addMessage = () => {
+export const addMessage = () => {
   let newMessage = {
     id: 3,
     message: state.dialogsPage.newMessageText,
@@ -83,15 +87,9 @@ export let addMessage = () => {
 };
 
 //получение данных из текстареа и формирование текста нового сообщения
-export let updateNewMessageText = (newTextMessage) => {
+export const updateNewMessageText = (newTextMessage) => {
   state.dialogsPage.newMessageText = newTextMessage;
-  renderEntireTree(
-    state,
-    addPost,
-    updateNewPostText,
-    addMessage,
-    updateNewMessageText
-  );
+  rerenderEntireTree();
 };
 
 export default state;
