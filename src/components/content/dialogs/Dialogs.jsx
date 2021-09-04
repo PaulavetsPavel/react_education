@@ -9,9 +9,8 @@ const Dialogs = (props) => {
         <Users usersData={props.state.users} />
         <Messages
           messages={props.state.messages}
+          dispatch={props.dispatch}
           newMessageText={props.state.newMessageText}
-          addMessage={props.addMessage}
-          updateNewMessageText={props.updateNewMessageText}
         />
       </div>
     </div>
