@@ -5,7 +5,7 @@ const Logo = () => {
     <div className={classes.logo}>
       <img
         className={classes.logo_image}
-        src='https://openconnectivity.org/wp-content/uploads/2018/01/SIoT-logo-PNG.png'
+        src='https://cdn.pixabay.com/photo/2020/08/05/22/16/owl-5466568_1280.png'
         alt='logo'
       />
     </div>

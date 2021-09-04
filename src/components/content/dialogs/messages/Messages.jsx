@@ -1,5 +1,6 @@
 import Message from './messageItem/MessageItem';
 import classes from './_Messages.module.scss';
+import Button from '../../../elements/buttons/Button';
 import React from 'react';
 
 const Messages = (props) => {
@@ -24,8 +25,8 @@ const Messages = (props) => {
           ref={newMessageElement}
           value={props.newMessageText}
         />
-        {/* добавление поста (функция в стейте) */}
-        <button onClick={props.addMessage}>Send</button>
+
+        <Button buttonText='Send' onClick={props.addMessages} />
       </div>
     </div>
   );

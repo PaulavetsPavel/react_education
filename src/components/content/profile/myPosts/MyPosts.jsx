@@ -1,4 +1,5 @@
 import Post from './post/Post';
+import Button from '../../../elements/buttons/Button';
 import classes from './_MyPosts.module.scss';
 import React from 'react';
 
@@ -32,8 +33,7 @@ const MyPosts = (props) => {
             ref={newPostElement}
             value={props.newPostText}
           />
-          {/* addPost() from state */}
-          <button onClick={props.addPost}>Send</button>
+          <Button buttonText='Send' onClick={props.addPost} />
         </div>
         <div className={classes.content}>{postItem}</div>
       </div>
