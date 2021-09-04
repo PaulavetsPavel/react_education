@@ -1,7 +1,7 @@
 .aside {
   flex: 0 0 300px;
   min-height: 100vh;
-  background-color: rgb(151, 215, 226);
+  background-color: rgb(165, 200, 230);
   padding: 50px 0 0 30px;
   border-radius: 0px 20px 0px 0px;
   overflow: hidden;
@@ -20,11 +20,13 @@
     font-family: Caveat;
     font-size: 40px;
     font-weight: bold;
-    color: #fff;
+    color: rgb(255, 255, 255);
+    text-shadow: 2px 2px 1px rgb(92, 109, 121);
   }
 }
 .active {
   font-size: 50px;
-  color: rgb(133, 130, 130);
+  color: rgb(245, 32, 32);
   transition: all 0.6s ease 0s;
+  text-shadow: 2px 2px 1px rgb(0, 0, 0);
 }
