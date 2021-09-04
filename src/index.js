@@ -1,11 +1,5 @@
 import reportWebVitals from './reportWebVitals';
-import state, {
-  addPost,
-  updateNewPostText,
-  addMessage,
-  updateNewMessageText,
-  subskribe,
-} from './redux/state';
+import store from './redux/state';
 import './css/style.min.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -13,33 +7,23 @@ import App from './App';
 //--------------------------------------------------------
 
 //создание функции для перерисовки страницы
-let rerenderEntireTree = () => {
+let rerenderEntireTree = (state) => {
   ReactDOM.render(
-    <App
-      state={state}
-      addPost={addPost}
-      updateNewPostText={updateNewPostText}
-      addMessage={addMessage}
-      updateNewMessageText={updateNewMessageText}
-    />,
+    <App state={state} dispatch={store.dispatch.bind(store)} />,
     document.getElementById('root')
   );
 };
+
 //------------------------------------------------
 
 //вызов функции для перерисовки страницы
-rerenderEntireTree();
-//не передаются как параметры,
-//потому что экспортируются в этом файле
-// state,
-// addPost,
-// updateNewPostText,
-// addMessage,
-// updateNewMessageText
+rerenderEntireTree(store.getState());
+
 //--------------------------------------------------------
 
 // передача функции для перерисовки страницы в стэйт
-subskribe(rerenderEntireTree);
+store.subskribe(rerenderEntireTree);
+
 //------------------------------------------------------
 
 // If you want to start measuring performance in your app, pass a function

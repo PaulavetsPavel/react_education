@@ -2,6 +2,10 @@ import Message from './messageItem/MessageItem';
 import classes from './_Messages.module.scss';
 import Button from '../../../elements/buttons/Button';
 import React from 'react';
+import {
+  addMessageActionCreator,
+  updateNewMessageTextActionCreator,
+} from '../../../../redux/state';
 
 const Messages = (props) => {
   let messageItem = props.messages.map((message) => {
@@ -10,10 +14,14 @@ const Messages = (props) => {
 
   let newMessageElement = React.createRef();
 
+  let addNewMessage = () => {
+    props.dispatch(addMessageActionCreator());
+  };
+
   // получени данных из текстареа
   let onMessageChange = () => {
     let newTextMessage = newMessageElement.current.value;
-    props.updateNewMessageText(newTextMessage);
+    props.dispatch(updateNewMessageTextActionCreator(newTextMessage));
   };
 
   return (
@@ -25,8 +33,7 @@ const Messages = (props) => {
           ref={newMessageElement}
           value={props.newMessageText}
         />
-
-        <Button buttonText='Send' onClick={props.addMessages} />
+        <Button buttonText='Send' onClick={addNewMessage} />
       </div>
     </div>
   );
