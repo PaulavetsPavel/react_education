@@ -5,7 +5,7 @@ import React from 'react';
 import {
   updateNewPostTextCreator,
   addPostCreator,
-} from '../../../../redux/state';
+} from '../../../../redux/profile-reducer';
 
 const MyPosts = (props) => {
   debugger;
@@ -32,11 +32,7 @@ const MyPosts = (props) => {
       <div className={classes.body}>
         <div className={classes.new}>
           <textarea onChange={onPostChahge} value={props.newPostText} />
-          <Button
-            buttonText='Send'
-            onClick={addNewPost}
-            buttonActive={props.buttonActive}
-          />
+          <Button buttonText='Send' onClick={addNewPost} />
         </div>
         <div className={classes.content}>{postItem}</div>
       </div>

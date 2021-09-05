@@ -19,7 +19,7 @@
     rgb(147, 32, 182) 100%
   );
 
-  &_active {
+  &:hover {
     align-self: flex-end;
     width: 80px;
     height: 30px;

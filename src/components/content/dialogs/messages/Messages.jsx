@@ -4,7 +4,7 @@ import Button from '../../../elements/buttons/Button';
 import {
   addMessageCreator,
   updateNewMessageTextCreator,
-} from '../../../../redux/state';
+} from '../../../../redux/dialogs-reducer';
 
 const Messages = (props) => {
   let messageItem = props.messages.map((message) => {
@@ -26,11 +26,7 @@ const Messages = (props) => {
       <div className={classes.messageItems}>{messageItem}</div>
       <div className={classes.new}>
         <textarea onChange={onMessageChange} value={props.newMessageText} />
-        <Button
-          buttonText='Send'
-          onClick={addNewMessage}
-          buttonActive={props.buttonActive}
-        />
+        <Button buttonText='Send' onClick={addNewMessage} />
       </div>
     </div>
   );

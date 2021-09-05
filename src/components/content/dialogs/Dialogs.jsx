@@ -11,7 +11,6 @@ const Dialogs = (props) => {
           messages={props.state.messages}
           dispatch={props.dispatch}
           newMessageText={props.state.newMessageText}
-          buttonActive={props.buttonActive}
         />
       </div>
     </div>
