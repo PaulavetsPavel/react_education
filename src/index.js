@@ -1,5 +1,5 @@
 import reportWebVitals from './reportWebVitals';
-import store from './redux/state';
+import store from './redux/redux-store';
 import './css/style.min.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -22,7 +22,10 @@ rerenderEntireTree(store.getState());
 //--------------------------------------------------------
 
 // передача функции для перерисовки страницы в стэйт
-store.subskribe(rerenderEntireTree);
+store.subscribe(() => {
+  let state = store.getState();
+  rerenderEntireTree(state);
+});
 
 //------------------------------------------------------
 

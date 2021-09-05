@@ -55,7 +55,7 @@ let store = {
     console.log('State changed');
   },
   // метод принимающий функцию, которая должна отрендерить страницу
-  subskribe(observer) {
+  subscribe(observer) {
     this._callSubscriber = observer;
   },
   // метод для извлечения state
@@ -71,8 +71,6 @@ let store = {
     this._callSubscriber(this._state);
   },
 };
-
-//===============================================
 
 //===============================================
 
