@@ -9,12 +9,29 @@
   font-size: 15px;
   color: #fff;
   font-weight: bold;
-  background-color: rgb(147, 32, 182);
   margin: 20px 0 0 0;
-  box-shadow: 3px 4px 2px rgb(32, 32, 32);
-  &:hover {
+  box-shadow: 2px 3px 2px rgba(32, 32, 32, 0.8);
+
+  background: rgb(236, 121, 192);
+  background: linear-gradient(
+    to bottom right,
+    rgb(236, 121, 192) 0%,
+    rgb(147, 32, 182) 100%
+  );
+
+  &_active {
+    align-self: flex-end;
+    width: 80px;
+    height: 30px;
+    border-radius: 5px;
+    overflow: hidden;
+    font-family: Raleway;
+    text-transform: uppercase;
+    font-size: 15px;
+    color: #fff;
+    font-weight: bold;
+    background-color: rgb(147, 32, 182);
     margin: 22px 0 -2px 0px;
-    box-shadow: 2px 2px 2px rgb(32, 32, 32);
-    transition: all 0.2s ease 0.1s;
+    box-shadow: 1px 1px 2px rgb(32, 32, 32);
   }
 }

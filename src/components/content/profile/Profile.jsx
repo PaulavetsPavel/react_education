@@ -16,6 +16,7 @@ const Profile = (props) => {
         state={props.state.posts}
         dispatch={props.dispatch}
         newPostText={props.state.newPostText}
+        buttonActive={props.buttonActive}
       />
     </div>
   );

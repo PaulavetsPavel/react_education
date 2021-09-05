@@ -3,23 +3,22 @@ import Button from '../../../elements/buttons/Button';
 import classes from './_MyPosts.module.scss';
 import React from 'react';
 import {
-  updateNewPostTextActionCreator,
-  addPostActionCreator,
+  updateNewPostTextCreator,
+  addPostCreator,
 } from '../../../../redux/state';
 
 const MyPosts = (props) => {
-  //создание ссылки на текстовое поле
-  let newPostElement = React.createRef();
-
+  debugger;
   //создание нового поста и передача его в стейт
   let addNewPost = () => {
-    props.dispatch(addPostActionCreator());
+    props.dispatch(addPostCreator());
   };
 
   // обновление текста поста который будет добавлен в стейт
-  let onPostChahge = () => {
-    let textPost = newPostElement.current.value;
-    props.dispatch(updateNewPostTextActionCreator(textPost));
+  let onPostChahge = (e) => {
+    // обращение к текстареа
+    let textPost = e.target.value;
+    props.dispatch(updateNewPostTextCreator(textPost));
   };
 
   //преобразование массива данных в элементы разметки
@@ -32,12 +31,12 @@ const MyPosts = (props) => {
       <div className={classes.heading}>My posts</div>
       <div className={classes.body}>
         <div className={classes.new}>
-          <textarea
-            onChange={onPostChahge}
-            ref={newPostElement}
-            value={props.newPostText}
+          <textarea onChange={onPostChahge} value={props.newPostText} />
+          <Button
+            buttonText='Send'
+            onClick={addNewPost}
+            buttonActive={props.buttonActive}
           />
-          <Button buttonText='Send' onClick={addNewPost} />
         </div>
         <div className={classes.content}>{postItem}</div>
       </div>

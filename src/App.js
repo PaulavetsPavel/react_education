@@ -23,6 +23,7 @@ const App = (props) => {
                 render={() => (
                   <Profile
                     state={props.state.profilePage}
+                    buttonActive={props.state.button.active}
                     dispatch={props.dispatch}
                   />
                 )}
@@ -33,6 +34,7 @@ const App = (props) => {
                   <Dialogs
                     state={props.state.dialogsPage}
                     dispatch={props.dispatch}
+                    buttonActive={props.state.button.active}
                   />
                 )}
               />

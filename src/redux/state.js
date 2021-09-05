@@ -51,6 +51,7 @@ let store = {
       ],
       newMessageText: '',
     },
+    button: { active: false },
   },
   // метод для ререндеринга страницы
   _callSubscriber() {
@@ -64,6 +65,7 @@ let store = {
   getState() {
     return this._state;
   },
+
   // метод для изменения state
   dispatch(action) {
     switch (action.type) {
@@ -80,7 +82,16 @@ let store = {
           likesCount: 0,
         };
         this._state.profilePage.posts.push(newPost);
-        this._state.profilePage.newPostText = '';
+        this._state.button.active = true;
+        // изменение state для анимация кнопки
+        setTimeout(() => {
+          this._state.button.active = false;
+          this._callSubscriber(this._state);
+          setTimeout(() => {
+            this._state.profilePage.newPostText = '';
+            this._callSubscriber(this._state);
+          }, 1);
+        }, 150);
         this._callSubscriber(this._state);
         break;
       }
@@ -97,8 +108,18 @@ let store = {
           message: this._state.dialogsPage.newMessageText,
         };
         this._state.dialogsPage.messages.push(newMessage);
-        this._state.dialogsPage.newMessageText = '';
+        // изменение state для анимация кнопки
+        this._state.button.active = true;
+        setTimeout(() => {
+          this._state.button.active = false;
+          this._callSubscriber(this._state);
+          setTimeout(() => {
+            this._state.dialogsPage.newMessageText = '';
+            this._callSubscriber(this._state);
+          }, 1);
+        }, 100);
         this._callSubscriber(this._state);
+
         break;
       }
 
@@ -111,16 +132,16 @@ let store = {
 //===============================================
 
 // функции для создания action которые передаются в dispatch
-export const addPostActionCreator = () => ({ type: ADD_POST });
+export const addPostCreator = () => ({ type: ADD_POST });
 
-export const updateNewPostTextActionCreator = (textPost) => ({
+export const updateNewPostTextCreator = (textPost) => ({
   type: UPDATE_NEW_POST_TEXT,
   newText: textPost,
 });
 
-export const addMessageActionCreator = () => ({ type: ADD_MESSAGE });
+export const addMessageCreator = () => ({ type: ADD_MESSAGE });
 
-export const updateNewMessageTextActionCreator = (newTextMessage) => ({
+export const updateNewMessageTextCreator = (newTextMessage) => ({
   type: UPDATE_NEW_MESSAGE_TEXT,
   newTextMessage: newTextMessage,
 });
