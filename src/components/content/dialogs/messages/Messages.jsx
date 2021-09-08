@@ -1,10 +1,6 @@
 import Message from './messageItem/MessageItem';
 import classes from './_Messages.module.scss';
 import Button from '../../../elements/buttons/Button';
-import {
-  addMessageCreator,
-  updateNewMessageTextCreator,
-} from '../../../../redux/dialogs-reducer';
 
 const Messages = (props) => {
   let messageItem = props.messages.map((message) => {
@@ -12,13 +8,13 @@ const Messages = (props) => {
   });
 
   let addNewMessage = () => {
-    props.dispatch(addMessageCreator());
+    props.addMessage();
   };
 
   // получени данных из текстареа
   let onMessageChange = (e) => {
     let newTextMessage = e.target.value;
-    props.dispatch(updateNewMessageTextCreator(newTextMessage));
+    props.updateNewMessageText(newTextMessage);
   };
 
   return (

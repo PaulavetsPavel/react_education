@@ -1,4 +1,4 @@
-import MyPosts from './myPosts/MyPosts';
+import MyPostsContainer from './myPosts/MyPostsContainer';
 import ProfileInfo from './profileInfo/ProfileInfo';
 import classes from './_Profile.module.scss';
 
@@ -12,11 +12,7 @@ const Profile = (props) => {
         />
       </div>
       <ProfileInfo />
-      <MyPosts
-        state={props.state.posts}
-        dispatch={props.dispatch}
-        newPostText={props.state.newPostText}
-      />
+      <MyPostsContainer store={props.store} />
     </div>
   );
 };
